@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@utility torn-bottom {
+  mask:
+    url("/masks/masks.svg#section-bottom") repeat-x left bottom / 100% 80px,
+    linear-gradient(to top, transparent 79px, black 80px);
+  -webkit-mask:
+    url("/masks/masks.svg#section-bottom") repeat-x left bottom / 100% 80px,
+    linear-gradient(to top, transparent 79px, black 80px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility torn-top {
+  mask:
+    url("/masks/masks.svg#section-top") repeat-x left top / 100% 80px,
+    linear-gradient(to bottom, transparent 79px, black 80px);
+  -webkit-mask:
+    url("/masks/masks.svg#section-top") repeat-x left top / 100% 80px,
+    linear-gradient(to bottom, transparent 79px, black 80px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility btn-grunge {
+  mask: url("/masks/masks.svg#button") no-repeat center / 100% 100%;
+  -webkit-mask: url("/masks/masks.svg#button") no-repeat center / 100% 100%;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  --color-orange: oklch(0.7022 0.2004 45.1);
+  --color-charcoal: oklch(0.2178 0 0);
+  --color-light: oklch(0.9407 0.0279 81.47);
+  --color-red: oklch(0.3999 0.1641 29.23);
+
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
