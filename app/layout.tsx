@@ -1,22 +1,7 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import SiteHeader from "@/components/layout/site-header";
+import { bebas, inter } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Harran Files",
@@ -34,10 +19,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebas.variable} ${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${bebas.variable} h-full antialiased`}
     >
-      <body className="bg-brown-grit dark flex min-h-full flex-col">
-        <header></header>
+      <body className="bg-brown-grit font-base flex min-h-full flex-col">
+        <SiteHeader />
         {children}
       </body>
     </html>
