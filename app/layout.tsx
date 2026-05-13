@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -14,10 +19,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dying Light Encyclopedia",
+  title: "Harran Files",
   description: "All kind of information about Dying Light",
   icons: {
-    icon: "/favicon.png",
+    icon: "img/favicon.png",
   },
 };
 
@@ -31,7 +36,10 @@ export default function RootLayout({
       lang="en"
       className={`${bebas.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="bg-brown-grit dark flex min-h-full flex-col">
+        <header></header>
+        {children}
+      </body>
     </html>
   );
 }
